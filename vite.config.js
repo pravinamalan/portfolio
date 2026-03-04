@@ -15,15 +15,17 @@ export default defineConfig({
         emptyOutDir: true,
         rollupOptions: {
             output: {
-                manualChunks: {
-                    "vendor-gsap": ["gsap", "gsap/ScrollTrigger"],
-                    "vendor-framer": ["framer-motion"],
-                    "vendor-ui": [
-                        "@radix-ui/react-accordion",
-                        "@radix-ui/react-dialog",
-                        "@radix-ui/react-tooltip",
-                        "lucide-react",
-                    ],
+                manualChunks(id) {
+                    if (id.includes("node_modules")) {
+                        if (
+                            id.includes("gsap") ||
+                            id.includes("framer-motion") ||
+                            id.includes("lucide-react")
+                        ) {
+                            return "vendor-core";
+                        }
+                        return "vendor";
+                    }
                 },
             },
         },
