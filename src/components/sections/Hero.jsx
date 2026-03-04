@@ -19,42 +19,30 @@ export default function Hero() {
     const currentRole = experience[0];
 
     const heroRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: heroRef,
-        offset: ["start start", "end start"],
-    });
-
-    const springConfig = { stiffness: 50, damping: 22, mass: 1, restDelta: 0.001 };
-
-    const layer1Y = useSpring(useTransform(scrollYProgress, [0, 1], [0, 80]), springConfig);
-    const layer2Y = useSpring(useTransform(scrollYProgress, [0, 1], [0, 160]), springConfig);
-    const layer4Y = useSpring(useTransform(scrollYProgress, [0, 1], [0, 240]), springConfig);
-    const layer5Y = useSpring(useTransform(scrollYProgress, [0, 1], [0, 320]), springConfig);
 
     return (
         <section
             ref={heroRef}
             id="hero"
-            className="relative flex min-h-screen lg:h-screen flex-col items-center justify-start lg:justify-center overflow-hidden pb-[24rem] pt-[6rem] sm:pb-28 sm:pt-40 lg:pb-48 lg:pt-72"
+            className="relative flex min-h-[100dvh] lg:h-screen flex-col items-center justify-start lg:justify-center overflow-visible pb-2 pt-32 sm:pt-40 lg:pt-40"
             data-story-section
         >
-            <motion.div
-                style={{ y: layer1Y }}
-                className="absolute inset-0 z-0 bg-transparent"
-            />
-            <motion.div
-                style={{ y: layer2Y }}
-                className="absolute inset-0 z-10 opacity-30 pointer-events-none"
-            >
+            <div className="absolute inset-0 z-0 bg-transparent pointer-events-none" />
+
+            <div className="absolute inset-0 z-10 opacity-30 pointer-events-none overflow-hidden">
                 <div className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-cyan-500/20 blur-[120px]" />
                 <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-purple-500/20 blur-[150px]" />
-            </motion.div>
+
+                <div className="absolute top-[15%] right-[3%] opacity-20 rotate-[35deg]">
+                    <MapPin size={120} className="text-primary" strokeWidth={1} />
+                </div>
+                <div className="absolute bottom-[20%] left-[5%] opacity-20 -rotate-12">
+                    <BriefcaseBusiness size={140} className="text-cyan-500" strokeWidth={1} />
+                </div>
+            </div>
 
             <div className="section-wrap relative z-30">
-                <motion.div
-                    style={{ y: layer4Y }}
-                    className="grid items-start gap-10 lg:grid-cols-[1.15fr_0.85fr] will-change-transform"
-                >
+                <div className="grid items-start gap-10 lg:grid-cols-[1.15fr_0.85fr]">
                     <Stagger className="space-y-4 sm:space-y-8">
                         <StaggerItem data-story-item>
                             <span className="chip border-primary/30 text-primary">
@@ -69,7 +57,7 @@ export default function Hero() {
                                     <TextScramble
                                         text={personalInfo.name}
                                         characterClassName="headline-gradient"
-                                        variant="reveal"
+                                        variant="zoom"
                                     />
                                 </span>
                             </h1>
@@ -181,17 +169,14 @@ export default function Hero() {
                             </ul>
                         </div>
                     </Reveal>
-                </motion.div>
+                </div>
             </div>
 
-            <motion.div
-                style={{ y: layer5Y }}
-                className="absolute inset-0 z-40 pointer-events-none will-change-transform"
-            >
-                <div className="absolute top-1/2 right-10 h-16 w-16 border-2 border-cyan-500/30 rounded-lg rotate-12" />
-                <div className="absolute top-1/3 left-10 h-12 w-12 border-2 border-primary/30 rounded-full" />
+            <div className="absolute inset-x-0 bottom-0 top-0 z-40 pointer-events-none overflow-hidden">
+                <div className="absolute top-[70%] right-10 h-16 w-16 border-2 border-cyan-500/30 rounded-lg rotate-12" />
+                <div className="absolute top-1/4 left-10 h-12 w-12 border-2 border-primary/30 rounded-full" />
                 <div className="absolute bottom-20 left-1/2 h-20 w-1 bg-gradient-to-t from-primary/50 to-transparent" />
-            </motion.div>
+            </div>
         </section>
     );
 }

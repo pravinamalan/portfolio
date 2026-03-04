@@ -1,59 +1,58 @@
-# Animated Marketing Hub
+# Pravin Amalan - Portfolio
 
-This project is a React + Express application using Vite for the frontend and Drizzle ORM with PostgreSQL for the backend.
+A premium, modern, and highly animated portfolio website built with React, Vite, and Framer Motion.
 
-## prerequisites
+## Features
 
-- Node.js (v20 or higher recommended)
-- PostgreSQL database
+- **Dynamic Hero Section**: High-performance animations using Framer Motion and GSAP.
+- **Premium UI Components**: Custom-built components with glassmorphism and magnetic interactions.
+- **Interactive Background**: Fluid, mouse-aware particle effects and gradients.
+- **Responsive Design**: Fully optimized for mobile, tablet, and desktop experiences.
+- **Micro-interactions**: Smooth transitions and magnetic buttons for an engaging UX.
 
-## Setup
+## Tech Stack
 
-1.  **Install Dependencies**
+- **Frontend**: React 18, Vite
+- **Styling**: Tailwind CSS, CSS Variables
+- **Animations**: Framer Motion, GSAP, Lenis (Smooth Scroll)
+- **Icons**: Lucide React
+- **Analytics**: Vercel Analytics & Speed Insights
 
-    ```bash
-    npm install
-    ```
+## Getting Started
 
-2.  **Database Setup**
+### Prerequisites
 
-    Ensure you have a PostgreSQL database running. Create a database (e.g., `marketing_hub`).
+- Node.js (v18 or higher recommended)
 
-    Update the `.env` file with your database connection string:
+### Installation
 
-    ```env
-    DATABASE_URL=postgresql://username:password@localhost:5432/marketing_hub
-    PORT=5000
-    ```
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-3.  **Initialize Database Schema**
+### Development
 
-    Push the schema to your database:
+Start the development server:
+```bash
+npm run dev
+```
 
-    ```bash
-    npm run db:push
-    ```
+The application will be available at `http://localhost:5173`.
 
-4.  **Run Development Server**
+### Production Build
 
-    Start the application:
-
-    ```bash
-    npm run dev
-    ```
-
-    The application will be available at `http://localhost:5000`.
-
-## Build for Production
-
-To build the application for production:
-
+Create a production bundle:
 ```bash
 npm run build
 ```
 
-To start the production server:
-
+Preview the production build locally:
 ```bash
-npm start
+npm run preview
 ```
+
+## License
+
+This project is licensed under the MIT License.

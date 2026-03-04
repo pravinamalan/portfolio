@@ -17,7 +17,7 @@ export default function TextScramble({
         show: {
             opacity: 1,
             transition: {
-                staggerChildren: variant === "zoom" ? 0.08 : (variant === "reveal" ? 0.05 : 0.04),
+                staggerChildren: variant === "zoom" ? 0.15 : (variant === "reveal" ? 0.05 : 0.04),
                 delayChildren: delay,
             },
         },
