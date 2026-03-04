@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600&family=Sora:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Sora", ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+  --font-serif: "IBM Plex Serif", ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  --background: 222 37% 8%;
+  --foreground: 210 30% 96%;
+
+  --card: 222 33% 12%;
+  --card-foreground: 210 30% 96%;
+  --card-border: 218 20% 24%;
+
+  --popover: 222 33% 12%;
+  --popover-foreground: 210 30% 96%;
+  --popover-border: 218 20% 24%;
+
+  --border: 218 20% 24%;
+  --input: 218 20% 26%;
+  --ring: 202 92% 58%;
+
+  --primary: 202 92% 58%;
+  --primary-foreground: 222 38% 10%;
+
+  --secondary: 219 30% 18%;
+  --secondary-foreground: 210 30% 96%;
+
+  --muted: 220 25% 16%;
+  --muted-foreground: 214 17% 73%;
+
+  --accent: 173 78% 44%;
+  --accent-foreground: 222 38% 10%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 30% 96%;
+
+  --chart-1: 202 92% 58%;
+  --chart-2: 173 78% 44%;
+  --chart-3: 33 90% 63%;
+  --chart-4: 267 80% 68%;
+  --chart-5: 347 88% 62%;
+
+  --radius: 0.9rem;
+
+  --button-outline: rgba(255, 255, 255, 0.16);
+  --badge-outline: rgba(255, 255, 255, 0.12);
+  --opaque-button-border-intensity: 8;
+  --elevate-1: rgba(255, 255, 255, 0.06);
+  --elevate-2: rgba(255, 255, 255, 0.1);
+
+  --sidebar: 222 33% 12%;
+  --sidebar-foreground: 210 30% 96%;
+  --sidebar-border: 218 20% 24%;
+  --sidebar-primary: 202 92% 58%;
+  --sidebar-primary-foreground: 222 38% 10%;
+  --sidebar-accent: 173 78% 44%;
+  --sidebar-accent-foreground: 222 38% 10%;
+  --sidebar-ring: 202 92% 58%;
+
+  --sidebar-primary-border: hsl(var(--sidebar-primary));
+  --sidebar-primary-border: hsl(from hsl(var(--sidebar-primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --sidebar-accent-border: hsl(var(--sidebar-accent));
+  --sidebar-accent-border: hsl(from hsl(var(--sidebar-accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --primary-border: hsl(var(--primary));
+  --primary-border: hsl(from hsl(var(--primary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --secondary-border: hsl(var(--secondary));
+  --secondary-border: hsl(from hsl(var(--secondary)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --muted-border: hsl(var(--muted));
+  --muted-border: hsl(from hsl(var(--muted)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --accent-border: hsl(var(--accent));
+  --accent-border: hsl(from hsl(var(--accent)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --destructive-border: hsl(var(--destructive));
+  --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+    scroll-padding-top: 92px;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(1200px 700px at 10% -8%, hsl(var(--primary) / 0.16), transparent 55%),
+      radial-gradient(1000px 640px at 92% -12%, hsl(var(--accent) / 0.14), transparent 58%),
+      linear-gradient(180deg, hsl(222 37% 8%) 0%, hsl(223 36% 7%) 45%, hsl(225 35% 6%) 100%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    @apply tracking-tight;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.28);
+  }
+}
+
+@layer utilities {
+  .app-grid::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.2;
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(circle at center, black, transparent 75%);
+  }
+
+  .section-wrap {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .surface-panel {
+    background: linear-gradient(180deg, hsl(0 0% 100% / 0.08), hsl(0 0% 100% / 0.03));
+    border: 1px solid hsl(0 0% 100% / 0.1);
+    box-shadow:
+      0 1px 0 hsl(0 0% 100% / 0.08) inset,
+      0 20px 48px hsl(222 40% 4% / 0.55);
+    backdrop-filter: blur(12px);
+  }
+
+  .focus-premium:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 1px hsl(0 0% 100% / 0.14),
+      0 0 0 5px hsl(var(--primary) / 0.24);
+  }
+
+  .headline-gradient {
+    background: linear-gradient(130deg, hsl(210 30% 98%), hsl(201 88% 76%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-border bg-white/[0.03] px-3 py-1 text-xs font-medium text-muted-foreground;
+  }
+
+  @keyframes float-slow {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  .animate-float-slow {
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
+  input[type="search"]::-webkit-search-cancel-button {
+    @apply hidden;
+  }
+}

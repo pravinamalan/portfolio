@@ -1,0 +1,200 @@
+{
+    "personalInfo": {
+        "name": "Pravin Amalan",
+        "title": "Frontend Engineer | React and Laravel",
+        "location": "Chennai, India",
+        "email": "pravinamalan21@gmail.com",
+        "linkedin": "linkedin.com/in/pravinamalan",
+        "github": "github.com/pravinamalan",
+        "bio": "I build responsive, production-ready web applications with strong UI quality, clean architecture, and reliable performance. My focus is creating products that are easy to use, easy to maintain, and aligned with business goals."
+    },
+    "quickFacts": [
+        {
+            "label": "Location",
+            "value": "Chennai, India"
+        },
+        {
+            "label": "Experience",
+            "value": "3+ years building modern web products"
+        },
+        {
+            "label": "Current Role",
+            "value": "Frontend Developer at Mercu"
+        },
+        {
+            "label": "Education",
+            "value": "M.Sc. Data Analytics and B.Sc. Mathematics"
+        },
+        {
+            "label": "Work Preference",
+            "value": "Full-time role with selective freelance projects"
+        },
+        {
+            "label": "Core Strength",
+            "value": "Frontend architecture, API integration, and delivery ownership"
+        }
+    ],
+    "skills": {
+        "Frontend": [
+            "React.js",
+            "JavaScript (ES6+)",
+            "jQuery",
+            "HTML5",
+            "CSS3",
+            "Sass / SCSS",
+            "Bootstrap",
+            "Tailwind CSS"
+        ],
+        "Backend and Database": [
+            "Laravel",
+            "PHP",
+            "MySQL",
+            "REST APIs"
+        ],
+        "Tools and Workflow": [
+            "Git",
+            "GitHub",
+            "GitHub Copilot",
+            "ClickUp",
+            "Agile / Scrum",
+            "VS Code"
+        ],
+        "Professional Skills": [
+            "Problem Solving",
+            "Team Collaboration",
+            "Communication",
+            "Time Management",
+            "Attention to Detail",
+            "Adaptability"
+        ]
+    },
+    "services": [
+        {
+            "title": "Frontend Development",
+            "description": "Designing and building responsive interfaces with React, semantic HTML, and scalable CSS systems for production applications."
+        },
+        {
+            "title": "Backend Development",
+            "description": "Developing secure Laravel APIs and data-driven features with MySQL-backed architecture."
+        },
+        {
+            "title": "Legacy Code Migration",
+            "description": "Modernizing legacy PHP products into maintainable Laravel codebases with improved performance and delivery speed."
+        },
+        {
+            "title": "Dashboard & CRM Development",
+            "description": "Building business dashboards and CRM workflows with clear UX, role-based flows, and clean data presentation."
+        },
+        {
+            "title": "Responsive Web Design",
+            "description": "Creating consistent cross-device experiences with mobile-first layouts and careful UI behavior tuning."
+        },
+        {
+            "title": "Performance Optimization",
+            "description": "Improving load time, rendering performance, and runtime efficiency across frontend and backend layers."
+        }
+    ],
+    "projects": [
+        {
+            "title": "APARTEASE",
+            "subtitle": "Multi-Role Apartment & Community Management Platform",
+            "role": "Frontend Developer",
+            "description": "Built a full-stack apartment management platform with dedicated portals for residents, admins, staff, vendors, and super admins; implemented billing and Razorpay payments, complaint and service workflows, gate-pass security logs, attendance management, multilingual UI, and real-time community chat.",
+            "techStack": [
+                "React",
+                "Vite",
+                "Tailwind CSS",
+                "Node.js",
+                "Express.js",
+                "MongoDB",
+                "Socket.IO",
+                "Razorpay",
+                "Twilio",
+                "JavaScript"
+            ]
+        },
+        {
+            "title": "INFLOWCARE",
+            "subtitle": "Homecare Agency Management Platform",
+            "role": "Frontend Developer",
+            "description": "Delivered core UI modules for patient intake, caregiver onboarding, and scheduling operations. Built dynamic forms, reusable components, and admin-facing dashboards for day-to-day business workflows.",
+            "techStack": [
+                "React.js",
+                "JavaScript",
+                "jQuery",
+                "HTML5",
+                "CSS3",
+                "Sass",
+                "Bootstrap",
+                "Laravel",
+                "MySQL"
+            ]
+        },
+        {
+            "title": "STORAGE MASTER",
+            "subtitle": "Storage and Vehicle Rental Management System",
+            "role": "Full Stack Developer (Migration Lead)",
+            "description": "Led migration from a legacy PHP system to Laravel, rebuilt critical UI and backend modules, and delivered pricing, reservation, and admin control features used in real operations.",
+            "techStack": [
+                "Laravel",
+                "PHP",
+                "MySQL",
+                "JavaScript",
+                "jQuery",
+                "HTML5",
+                "CSS3",
+                "Bootstrap"
+            ]
+        },
+        {
+            "title": "DJ CRM",
+            "subtitle": "Event Planning and Music Operations CRM",
+            "role": "Full Stack Developer (End-to-End Ownership)",
+            "description": "Built and maintained features for event planning workflows, song database management, and authentication-driven operations. Progressed from backend implementation to full ownership of product delivery and deployment.",
+            "techStack": [
+                "Laravel",
+                "PHP",
+                "MySQL",
+                "JavaScript",
+                "jQuery",
+                "HTML5",
+                "CSS3",
+                "Bootstrap"
+            ]
+        }
+    ],
+    "experience": [
+        {
+            "company": "Mercu",
+            "position": "Frontend Developer",
+            "location": "Chennai, India",
+            "duration": "July 2022 - Present",
+            "type": "Full-time",
+            "description": "I work across product teams to build and maintain web applications in healthcare, CRM, and rental-management domains. My responsibilities include feature implementation, API integration, UI optimization, and cross-team delivery collaboration.",
+            "achievements": [
+                "Built reusable UI components that improved development velocity across multiple projects.",
+                "Delivered frontend and backend features for CRM and management platforms using React and Laravel.",
+                "Led a legacy migration project that improved maintainability and performance.",
+                "Owned final-phase development, testing, and release coordination for DJ CRM."
+            ]
+        }
+    ],
+    "stats": [
+        {
+            "value": "3+",
+            "label": "Years Experience"
+        },
+        {
+            "value": "3",
+            "label": "Major Products Delivered"
+        },
+        {
+            "value": "50%",
+            "label": "Performance Improvement"
+        },
+        {
+            "value": "3",
+            "label": "Business Domains Served"
+        }
+    ]
+}
