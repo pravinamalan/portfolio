@@ -5,7 +5,6 @@ import Hero from "@/components/sections/Hero";
 import ScrollSequence from "@/components/sections/ScrollSequence";
 import About from "@/components/sections/About";
 
-// Lazy load below-the-fold sections
 const Skills = lazy(() => import("@/components/sections/Skills"));
 const Services = lazy(() => import("@/components/sections/Services"));
 const Projects = lazy(() => import("@/components/sections/Projects"));
@@ -14,7 +13,6 @@ const Stats = lazy(() => import("@/components/sections/Stats"));
 const Contact = lazy(() => import("@/components/sections/Contact"));
 const Footer = lazy(() => import("@/components/layout/Footer"));
 import Background from "@/components/Background";
-import CustomCursor from "@/components/CustomCursor";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Analytics } from "@vercel/analytics/react";
 

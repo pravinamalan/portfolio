@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { MapPin, Briefcase, Clock, FileText, Send, Github as GithubIcon, Linkedin as LinkedinIcon, Mail as MailIcon, Calculator, Pin } from "lucide-react";
 import portfolioData from "@/data/portfolioData.json";
-import TextType from "@/components/TextType";
 import Sticker from "@/components/ui/Sticker";
 import Tape from "@/components/ui/Tape";
 import DraggableNote from "@/components/ui/DraggableNote";
