@@ -12,7 +12,7 @@ export default {
                 sm: ".1875rem", /* 3px */
             },
             colors: {
-                // Flat / base colors (regular buttons)
+
                 background: "hsl(var(--background) / <alpha-value>)",
                 foreground: "hsl(var(--foreground) / <alpha-value>)",
                 border: "hsl(var(--border) / <alpha-value>)",
@@ -31,6 +31,8 @@ export default {
                     DEFAULT: "hsl(var(--primary) / <alpha-value>)",
                     foreground: "hsl(var(--primary-foreground) / <alpha-value>)",
                     border: "var(--primary-border)",
+                    glow: "var(--primary-glow)",
+                    "glow-strong": "var(--primary-glow-strong)",
                 },
                 secondary: {
                     DEFAULT: "hsl(var(--secondary) / <alpha-value>)",
@@ -53,6 +55,11 @@ export default {
                     border: "var(--destructive-border)",
                 },
                 ring: "hsl(var(--ring) / <alpha-value>)",
+                electric: {
+                    blue: "var(--electric-blue)",
+                    magenta: "var(--electric-magenta)",
+                    violet: "var(--electric-violet)",
+                },
                 chart: {
                     "1": "hsl(var(--chart-1) / <alpha-value>)",
                     "2": "hsl(var(--chart-2) / <alpha-value>)",
@@ -84,9 +91,17 @@ export default {
                 },
             },
             fontFamily: {
-                sans: ["var(--font-sans)"],
+                sans: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
                 serif: ["var(--font-serif)"],
-                mono: ["var(--font-mono)"],
+                mono: ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
+                display: ["ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+            },
+            fontWeight: {
+                black: "500",
+            },
+            letterSpacing: {
+                tightest: "-0.08em",
+                tighter: "-0.04em",
             },
             keyframes: {
                 "accordion-down": {

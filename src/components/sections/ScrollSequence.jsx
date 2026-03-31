@@ -1,175 +1,94 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import SectionHeading from "@/components/SectionHeading";
+import Tape from "@/components/ui/Tape";
 
 const STEPS = [
     {
-        title: "I Design",
+        phase: "01",
+        title: "The *Blueprint*",
+        label: "STRATEGY & DESIGN",
         description: "Crafting visually stunning and highly intuitive user interfaces with a focus on user experience and modern aesthetics.",
-        color: "from-cyan-500 to-blue-500",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-full w-full">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122l9.156-9.156a1.5 1.5 0 10-2.122-2.122L7.41 13.998c-.113.113-.2.253-.254.406L6.5 16.5l2.096-.656a.75.75 0 01.406-.254z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M14.14 4.12l4.243 4.243" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19 19H5" />
-            </svg>
-        )
     },
     {
-        title: "I Develop",
+        phase: "02",
+        title: "The *Assembly*",
+        label: "DEVELOPMENT",
         description: "Transforming designs into robust, scalable applications using cutting-edge technologies and best coding practices.",
-        color: "from-purple-500 to-indigo-500",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-full w-full">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-            </svg>
-        )
     },
     {
-        title: "I Deploy",
+        phase: "03",
+        title: "The *Release*",
+        label: "DEPLOYMENT",
         description: "Ensuring your applications are live, secure, and accessible to everyone, with CI/CD and cloud-native solutions.",
-        color: "from-indigo-500 to-cyan-500",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-full w-full">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
-            </svg>
-        )
     },
     {
-        title: "I Optimize",
+        phase: "04",
+        title: "The *Tune-Up*",
+        label: "OPTIMIZATION",
         description: "Fine-tuning every aspect of performance to deliver lightning-fast experiences that keep users engaged.",
-        color: "from-emerald-500 to-teal-500",
-        icon: (
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-full w-full">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-            </svg>
-        )
     }
 ];
 
 export default function ScrollSequence() {
-    const containerRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end end"]
-    });
-
-    const scrollProgress = useSpring(scrollYProgress, {
-        stiffness: 45,
-        damping: 25,
-        mass: 1.2,
-        restDelta: 0.001
-    });
-
     return (
-        <section ref={containerRef} className="relative h-[900vh]">
-            <div className="sticky top-0 flex h-screen w-full items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none">
-                    <motion.h2
-                        style={{ scale: useTransform(scrollProgress, [0, 1], [1, 3]) }}
-                        className="text-[20vw] font-bold uppercase will-change-transform"
-                    >
-                        PROCESS
-                    </motion.h2>
-                </div>
+        <section id="process" className="py-24 lg:py-32 relative overflow-hidden bg-background" data-story-section>
+            <div className="section-wrap">
+                <SectionHeading
+                    eyebrow="Workflow"
+                    title="The *Process*"
+                    description="A structured approach to building high-performance digital products."
+                    align="center"
+                    className="mb-24"
+                />
 
-                <div className="section-wrap relative h-full w-full">
+                <div className="max-w-4xl mx-auto space-y-12">
                     {STEPS.map((step, index) => (
-                        <StepItem
-                            key={step.title}
-                            step={step}
-                            index={index}
-                            progress={scrollProgress}
-                        />
-                    ))}
-                </div>
+                        <motion.div
+                            key={step.phase}
+                            initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            className={cn(
+                                "relative flex flex-col md:flex-row items-center gap-12",
+                                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                            )}
+                        >
+                            <div className="w-full md:w-1/2">
+                                <div className="paper-card p-10 relative bg-white group hover:rotate-1 transition-transform">
+                                    <Tape className="-top-2 left-10" rotate={-5} color="rgba(78,59,49,0.1)" />
+                                    
+                                    <div className="mono text-[10px] font-bold text-primary/60 mb-4 tracking-widest uppercase">
+                                        PHASE_{step.phase} • {step.label}
+                                    </div>
+                                    
+                                    <h3 className="font-display text-3xl font-extrabold text-foreground mb-6">
+                                        <div dangerouslySetInnerHTML={{ __html: step.title.replace(/\*(.*?)\*/g, '<span class="text-primary italic">$1</span>') }} />
+                                    </h3>
 
-                <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-8">
-                    {STEPS.map((_, index) => (
-                        <ProgressDot
-                            key={index}
-                            index={index}
-                            progress={scrollProgress}
-                        />
+                                    <p className="font-sans text-[0.95rem] leading-relaxed text-foreground/60 italic">
+                                        "{step.description}"
+                                    </p>
+
+                                    <div className="mt-8 pt-6 border-t border-dashed border-border flex justify-between">
+                                        <div className="flex gap-1">
+                                            {[1, 2, 3].map(i => <div key={i} className="w-1 h-1 rounded-full bg-primary/20" />)}
+                                        </div>
+                                        <div className="mono text-[8px] font-bold text-foreground/10">BLUEPRINT_SV_{step.phase}</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="hidden md:flex w-1/2 items-center justify-center">
+                                <div className="font-display text-[10rem] font-black text-foreground/20 select-none leading-none">
+                                    {step.phase}
+                                </div>
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
         </section>
-    );
-}
-
-function StepItem({ step, index, progress }) {
-    const start = index / STEPS.length;
-    const end = (index + 1) / STEPS.length;
-
-    const opacity = useTransform(
-        progress,
-        [start, start + 0.05, end - 0.05, end],
-        [0, 1, 1, 0]
-    );
-
-    const scale = useTransform(
-        progress,
-        [start, start + 0.1, end - 0.1, end],
-        [0.8, 1, 1, 0.8]
-    );
-
-    const x = useTransform(
-        progress,
-        [start, start + 0.1, end - 0.1, end],
-        [50, 0, 0, -50]
-    );
-
-    const pointerEvents = useTransform(
-        progress,
-        [start, start + 0.05, end - 0.05, end],
-        ["none", "auto", "auto", "none"]
-    );
-
-    return (
-        <motion.div
-            style={{ opacity, scale, x, pointerEvents }}
-            className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 will-change-[transform,opacity]"
-        >
-            <div className={cn(
-                "mb-8 h-32 w-32 rounded-3xl bg-gradient-to-br p-6 text-white shadow-2xl shadow-primary/20 sm:h-48 sm:w-48 sm:p-10",
-                step.color
-            )}>
-                {step.icon}
-            </div>
-
-            <h3 className="mb-4 text-4xl font-bold sm:text-6xl lg:text-7xl">
-                <span className={cn("bg-gradient-to-r bg-clip-text text-transparent", step.color)}>
-                    {step.title}
-                </span>
-            </h3>
-
-            <p className="max-w-xl text-lg text-muted-foreground sm:text-xl">
-                {step.description}
-            </p>
-
-            <div className="mt-12 flex items-center gap-4">
-                <div className="h-px w-12 bg-white/10" />
-                <span className="text-sm font-mono text-primary">0{index + 1}</span>
-                <div className="h-px w-12 bg-white/10" />
-            </div>
-        </motion.div>
-    );
-}
-
-function ProgressDot({ index, progress }) {
-    const isActive = useTransform(
-        progress,
-        [index / STEPS.length, (index + 1) / STEPS.length],
-        [0, 1]
-    );
-
-    return (
-        <div className="relative h-2 w-2 rounded-full bg-white/10">
-            <motion.div
-                style={{ scale: isActive, opacity: isActive }}
-                className="absolute inset-0 rounded-full bg-primary shadow-[0_0_10px_hsl(var(--primary))]"
-            />
-        </div>
     );
 }

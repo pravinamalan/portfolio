@@ -1,181 +1,147 @@
-import { useEffect, useRef } from "react";
-import {
-    ArrowRight,
-    BriefcaseBusiness,
-    Download,
-    Github,
-    Linkedin,
-    Mail,
-    MapPin,
-} from "lucide-react";
+import { motion } from "framer-motion";
+import { MapPin, Briefcase, Clock, FileText, Send, Github as GithubIcon, Linkedin as LinkedinIcon, Mail as MailIcon, Calculator, Pin } from "lucide-react";
 import portfolioData from "@/data/portfolioData.json";
-import { Reveal, Stagger, StaggerItem } from "@/components/Reveal";
-import MagneticButton from "@/components/MagneticButton";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import TextScramble from "@/components/TextScramble";
+import TextType from "@/components/TextType";
+import Sticker from "@/components/ui/Sticker";
+import Tape from "@/components/ui/Tape";
+import DraggableNote from "@/components/ui/DraggableNote";
 
 export default function Hero() {
     const { personalInfo, stats, experience } = portfolioData;
-    const currentRole = experience[0];
 
-    const heroRef = useRef(null);
+    const infoChips = [
+        { icon: Briefcase, label: "Frontend Engineer | React" },
+        { icon: MapPin, label: personalInfo.location },
+        { icon: Clock, label: stats[0].value + " Experience" },
+    ];
+
+    const socials = [
+        { icon: GithubIcon, href: personalInfo.github ? `https://${personalInfo.github}` : "#", label: "GitHub" },
+        { icon: LinkedinIcon, href: personalInfo.linkedin ? `https://${personalInfo.linkedin}` : "#", label: "LinkedIn" },
+        { icon: MailIcon, href: `mailto:${personalInfo.email}`, label: "Email" },
+    ];
 
     return (
         <section
-            ref={heroRef}
             id="hero"
-            className="relative flex min-h-[100dvh] lg:h-screen flex-col items-center justify-start lg:justify-center overflow-visible pb-2 pt-32 sm:pt-40 lg:pt-40"
+            className="relative lg:min-h-[100dvh] w-full flex flex-col items-center justify-center pt-32 pb-20 overflow-hidden"
             data-story-section
         >
-            <div className="absolute inset-0 z-0 bg-transparent pointer-events-none" />
-
-            <div className="absolute inset-0 z-10 opacity-30 pointer-events-none overflow-hidden">
-                <div className="absolute top-1/4 left-1/4 h-64 w-64 rounded-full bg-cyan-500/20 blur-[120px]" />
-                <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-purple-500/20 blur-[150px]" />
-
-                <div className="absolute top-[15%] right-[3%] opacity-20 rotate-[35deg]">
-                    <MapPin size={120} className="text-primary" strokeWidth={1} />
-                </div>
-                <div className="absolute bottom-[20%] left-[5%] opacity-20 -rotate-12">
-                    <BriefcaseBusiness size={140} className="text-cyan-500" strokeWidth={1} />
-                </div>
-            </div>
-
-            <div className="section-wrap relative z-30">
-                <div className="grid items-start gap-10 lg:grid-cols-[1.15fr_0.85fr]">
-                    <Stagger className="space-y-4 sm:space-y-8">
-                        <StaggerItem data-story-item>
-                            <span className="chip border-primary/30 text-primary">
-                                Open to Full-time and Freelance Projects
-                            </span>
-                        </StaggerItem>
-
-                        <StaggerItem data-story-item>
-                            <h1 className="max-w-3xl text-[28px] sm:text-5xl lg:text-3xl xl:text-4xl font-semibold leading-[1.1]">
-                                Building high-performance products with clean UI and reliable engineering.
-                                <span className="mt-3 block text-[38px] sm:text-7xl lg:text-6xl xl:text-7xl">
-                                    <TextScramble
-                                        text={personalInfo.name}
-                                        characterClassName="headline-gradient"
-                                        variant="zoom"
-                                    />
-                                </span>
-                            </h1>
-                        </StaggerItem>
-
-                        <StaggerItem data-story-item>
-                            <p className="max-w-2xl text-[15px] leading-relaxed text-muted-foreground sm:text-lg">
-                                {personalInfo.bio}
-                            </p>
-                        </StaggerItem>
-
-                        <StaggerItem className="flex flex-wrap gap-3" data-story-item>
-                            <span className="chip">
-                                <BriefcaseBusiness size={14} className="mr-2" />
-                                {personalInfo.title}
-                            </span>
-                            <span className="chip">
-                                <MapPin size={14} className="mr-2" />
-                                {personalInfo.location}
-                            </span>
-                            <span className="chip">{stats[0].value} experience</span>
-                        </StaggerItem>
-
-                        <StaggerItem className="flex flex-wrap gap-3 pt-2" data-story-item>
-                            <a href="#contact">
-                                <MagneticButton size="lg">
-                                    Start a Conversation <ArrowRight size={16} />
-                                </MagneticButton>
-                            </a>
-                            <a href="/resume.pdf" download="Pravin_Amalan_Resume.pdf">
-                                <MagneticButton variant="secondary" size="lg">
-                                    Download Resume <Download size={16} />
-                                </MagneticButton>
-                            </a>
-                        </StaggerItem>
-
-                        <StaggerItem className="flex items-center gap-4 pt-2" data-story-item>
-                            <a
-                                href={`https://${personalInfo.github}`}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="rounded-full border border-white/10 p-2.5 text-muted-foreground transition-colors hover:text-foreground"
-                                aria-label="GitHub"
-                            >
-                                <Github size={18} />
-                            </a>
-                            <a
-                                href={`https://${personalInfo.linkedin}`}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="rounded-full border border-white/10 p-2.5 text-muted-foreground transition-colors hover:text-foreground"
-                                aria-label="LinkedIn"
-                            >
-                                <Linkedin size={18} />
-                            </a>
-                            <a
-                                href={`mailto:${personalInfo.email}`}
-                                className="rounded-full border border-white/10 p-2.5 text-muted-foreground transition-colors hover:text-foreground"
-                                aria-label="Email"
-                            >
-                                <Mail size={18} />
-                            </a>
-                        </StaggerItem>
-                    </Stagger>
-
-                    <Reveal
-                        className="surface-panel sm:animate-float-slow rounded-3xl p-5 sm:p-8"
-                        delay={0.2}
-                        data-story-item
-                        data-tilt-card
+            <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+                <div className="relative w-full h-full pointer-events-auto">
+                    <DraggableNote
+                        initialX={200}
+                        initialY={100}
+                        initialRotate={-8}
+                        color="#fef08a"
+                        className="hidden lg:flex"
                     >
-                        <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                            <p className="text-xs uppercase tracking-[0.15em] text-muted-foreground">
-                                Professional Snapshot
-                            </p>
-                            <span className="inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.85)]" />
-                        </div>
+                        <Pin className="mb-2 text-red-500" size={20} />
+                        <p>Available for <br /> new projects</p>
+                    </DraggableNote>
 
-                        <div className="space-y-6 pt-4">
-                            <div>
-                                <p className="text-sm text-muted-foreground">Current Role</p>
-                                <p className="mt-1 text-lg font-semibold text-foreground">
-                                    {currentRole.position} at {currentRole.company}
-                                </p>
-                            </div>
+                    {/* <DraggableNote
+                        initialX={450}
+                        initialY={100}
+                        initialRotate={8}
+                        color="#bae6fd"
+                        className="hidden lg:flex"
+                    >
+                        <Calculator className="mb-2 text-blue-600" size={20} />
+                        <p className="mono font-bold text-xs">LOGIC + DESIGN</p>
+                    </DraggableNote> */}
 
-                            <div className="grid gap-3 grid-cols-2">
-                                {stats.map((item) => (
-                                    <div
-                                        key={item.label}
-                                        className="rounded-2xl border border-white/10 bg-white/[0.02] p-3 sm:p-4"
-                                        data-tilt-card
-                                    >
-                                        <p className="text-xl sm:text-2xl font-semibold text-foreground">{item.value}</p>
-                                        <p className="mt-1 text-[10px] sm:text-xs uppercase tracking-[0.12em] text-muted-foreground">
-                                            {item.label}
-                                        </p>
-                                    </div>
-                                ))}
-                            </div>
-
-                            <ul className="space-y-2">
-                                {currentRole.achievements.slice(0, 3).map((point) => (
-                                    <li key={point} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
-                                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary" />
-                                        <span>{point}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </Reveal>
+                    <motion.div
+                        drag
+                        initial={{ x: -500, y: 250, rotate: 15 }}
+                        className="absolute cursor-grab active:cursor-grabbing hidden lg:block"
+                    >
+                        <Sticker importance="high" className="bg-[#d94343] text-white">
+                            #PRO-DEV
+                        </Sticker>
+                    </motion.div>
                 </div>
             </div>
 
-            <div className="absolute inset-x-0 bottom-0 top-0 z-40 pointer-events-none overflow-hidden">
-                <div className="absolute top-[70%] right-10 h-16 w-16 border-2 border-cyan-500/30 rounded-lg rotate-12" />
-                <div className="absolute top-1/4 left-10 h-12 w-12 border-2 border-primary/30 rounded-full" />
-                <div className="absolute bottom-20 left-1/2 h-20 w-1 bg-gradient-to-t from-primary/50 to-transparent" />
+            <div className="relative z-10 w-full max-w-5xl px-6 flex flex-col items-center text-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="relative mb-8"
+                >
+                    <Tape className="-top-4 -left-4" rotate={-15} />
+                    <div className="mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary bg-primary/5 border border-primary/20 px-4 py-1.5 rounded-sm">
+                        Frontend Engineer | Creative Technologist
+                    </div>
+                </motion.div>
+
+                <div className="overflow-hidden">
+                    <h1 className="font-display text-[clamp(2.5rem,8vw,7rem)] font-extrabold leading-[0.9] tracking-[-0.04em] text-foreground">
+                        WEAVING <br />
+                        <span className="text-primary italic">DIGITAL</span> MAGIC.
+                    </h1>
+                </div>
+                <motion.p
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 0.3 }}
+                    className="mb-10 max-w-[600px] text-lg text-foreground/70 leading-relaxed font-sans"
+                >
+                    I am <span className="font-bold text-foreground underline decoration-primary/30 uppercase">{personalInfo.name}</span>, a developer focused on
+                    <span className="text-foreground font-medium"> tactile interfaces</span> and
+                    <span className="text-foreground font-medium italic"> performance-first architectures</span>.
+                    Merging retro aesthetics with modern tech.
+                </motion.p>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1.1, delay: 0.5 }}
+                    className="flex flex-wrap items-center justify-center gap-6 mb-12"
+                >
+                    <button className="bg-foreground text-background px-8 py-4 rounded-sm font-bold uppercase tracking-wider transition-all hover:bg-primary hover:text-white active:scale-95 shadow-[4px_4px_0px_#ccc] hover:shadow-[2px_2px_0px_#ccc]">
+                        Start Project
+                    </button>
+
+                    <button className="flex items-center gap-2 border border-foreground/20 px-8 py-4 rounded-sm font-bold uppercase tracking-wider transition-all hover:bg-foreground/5">
+                        <FileText size={18} /> CV
+                    </button>
+
+                    <div className="flex gap-4 ml-4">
+                        {socials.map((social, idx) => (
+                            <a
+                                key={idx}
+                                href={social.href}
+                                className="text-foreground/40 transition-colors hover:text-primary"
+                                title={social.label}
+                            >
+                                <social.icon size={20} />
+                            </a>
+                        ))}
+                    </div>
+                </motion.div>
+            </div>
+
+            {/* Index Cards Section (replacing glare hover) */}
+            <div className="relative z-10 w-full max-w-5xl px-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+                {stats.map((stat, i) => (
+                    <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 40 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6 + (i * 0.1) }}
+                        className="paper-card p-6 flex flex-col items-center justify-center relative overflow-hidden"
+                    >
+                        <Tape className="-top-3 left-1/2 -translate-x-1/2" rotate={i % 2 === 0 ? 2 : -2} />
+                        <div className="text-4xl font-extrabold text-primary mb-2 mono tracking-tighter">
+                            {stat.value}
+                        </div>
+                        <div className="mono text-[10px] uppercase font-bold text-foreground/40 tracking-widest">
+                            {stat.label}
+                        </div>
+                    </motion.div>
+                ))}
             </div>
         </section>
     );

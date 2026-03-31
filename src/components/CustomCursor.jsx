@@ -52,7 +52,7 @@ export default function CustomCursor() {
 
 
     return (
-        <div className="pointer-events-none fixed inset-0 z-[10000] mix-blend-difference">
+        <div className="pointer-events-none fixed inset-0 z-[10000]">
             <motion.div
                 style={{
                     x: springX,
@@ -60,23 +60,23 @@ export default function CustomCursor() {
                     translateX: "-50%",
                     translateY: "-50%",
                 }}
-                className="absolute flex items-center justify-center rounded-full bg-white"
+                className="absolute flex items-center justify-center rounded-full bg-foreground border border-white/20"
                 animate={{
-                    width: hoverState === "project" ? 100 : 12,
-                    height: hoverState === "project" ? 40 : 12,
-                    borderRadius: hoverState === "project" ? "20px" : "50%",
-                    scale: hoverState === "link" ? 2.5 : 1,
-                    opacity: hoverState === "link" ? 0.5 : 1,
+                    width: hoverState === "project" ? 80 : 10,
+                    height: hoverState === "project" ? 30 : 10,
+                    borderRadius: hoverState === "project" ? "4px" : "50%",
+                    scale: hoverState === "link" ? 3 : 1,
+                    opacity: 1,
                 }}
-                transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
             >
                 {hoverState === "project" && (
                     <motion.span
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="text-[10px] font-bold uppercase tracking-wider text-black"
+                        className="mono text-[8px] font-bold uppercase tracking-widest text-background"
                     >
-                        View →
+                        OPEN_FILE
                     </motion.span>
                 )}
             </motion.div>

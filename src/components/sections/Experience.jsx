@@ -1,83 +1,101 @@
-import { useRef } from "react";
-import { CalendarRange, MapPin, Briefcase } from "lucide-react";
+import { Briefcase, CalendarRange, MapPin, Hash, Circle } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import portfolioData from "@/data/portfolioData.json";
 import SectionHeading from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
+import { useRef } from "react";
+import CassettePlayer from "@/components/ui/CassettePlayer";
+import Tape from "@/components/ui/Tape";
 
 export default function Experience() {
     const { experience } = portfolioData;
+    const containerRef = useRef(null);
 
     return (
-        <section id="experience" className="py-24 lg:py-32 relative overflow-hidden" data-story-section>
+        <section id="experience" className="py-24 lg:py-32 relative overflow-hidden bg-background" data-story-section ref={containerRef}>
             <div className="section-wrap relative">
                 <SectionHeading
-                    eyebrow="Experience"
-                    title="Professional Journey"
-                    description="Roles, outcomes, and technical contributions delivered in production environments."
+                    eyebrow="Timeline"
+                    title="Career ~Logs~"
+                    description="Professional history retrieved from high-fidelity engineering modules."
                     align="center"
-                    className="mb-16"
+                    className="mb-32"
                 />
 
-                <div className="mx-auto max-w-4xl space-y-8">
-                    {experience.map((item, index) => (
-                        <Reveal
-                            key={`${item.company}-${item.position}`}
-                            y={40}
-                            delay={index * 0.15}
-                            className="w-full"
-                        >
-                            <article
-                                className="surface-panel rounded-3xl sm:rounded-[2.5rem] p-6 sm:p-10 lg:p-12 hover:shadow-2xl hover:shadow-primary/5 transition-all duration-700 border border-white/5"
-                                data-story-panel
-                                data-tilt-card
+                {/* Cassette Anchor */}
+                <div className="flex justify-center mb-28">
+                    <div className="relative group">
+                        <CassettePlayer containerRef={containerRef} className="scale-125 md:scale-150 group-hover:scale-155 transition-transform duration-1000" />
+                        <Tape className="-top-10 -left-16" rotate={-15} color="rgba(78,59,49,0.15)" />
+                    </div>
+                </div>
+
+                <div className="mx-auto max-w-5xl relative">
+                    {/* The Tape Timeline (Center Line) */}
+                    <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-[6px] bg-foreground/10 -translate-x-1/2 z-0" />
+                    
+                    <div className="flex flex-col gap-24">
+                        {experience.map((item, index) => (
+                            <Reveal
+                                key={`${item.company}-${item.position}`}
+                                y={60}
+                                delay={index * 0.1}
+                                className="relative w-full"
                             >
-                                <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-white/10 pb-6 sm:pb-8">
-                                    <div className="flex items-center gap-4 sm:gap-5">
-                                        <div className="grid h-12 w-12 sm:h-16 sm:w-16 place-items-center rounded-xl sm:rounded-2xl bg-primary/10 text-primary border border-primary/20 shrink-0">
-                                            <Briefcase size={22} sm={28} />
-                                        </div>
-                                        <div>
-                                            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground leading-tight">{item.position}</h3>
-                                            <p className="mt-0.5 sm:mt-1 text-base sm:text-lg font-medium text-primary/90">{item.company}</p>
-                                        </div>
-                                    </div>
+                                <div className={`relative flex items-center justify-center md:justify-between w-full ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                                    
+                                    {/* Timeline Node */}
+                                    <div className="absolute left-8 md:left-1/2 w-8 h-8 bg-primary rounded-sm border-4 border-white -translate-x-1/2 z-20 shadow-xl hidden md:block rotate-45" />
 
-                                    <div className="flex flex-wrap gap-2 sm:gap-3">
-                                        <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl border border-white/10 bg-white/[0.03] px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-muted-foreground whitespace-nowrap">
-                                            <CalendarRange size={12} sm={14} className="text-primary" />
-                                            {item.duration}
-                                        </div>
-                                        <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl border border-white/10 bg-white/[0.03] px-3 sm:px-4 py-1.5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-muted-foreground whitespace-nowrap">
-                                            <MapPin size={12} sm={14} className="text-primary" />
-                                            {item.location}
-                                        </div>
-                                    </div>
-                                </div>
+                                    <div className="w-full md:w-[46%] pl-20 md:pl-0">
+                                        <div className="paper-card p-10 relative bg-white group hover:translate-y-[-8px] transition-all duration-700 shadow-2xl">
+                                            <Tape className="-top-4 left-1/2 -translate-x-1/2 rotate-[-2deg]" color="rgba(0,0,0,0.08)" />
+                                            
+                                            <header className="mb-8 border-b-2 border-dashed border-border/50 pb-6">
+                                                <div className="flex items-center gap-3 mono text-[12px] font-black text-primary mb-3">
+                                                    <Hash size={14} /> LOG_ENTRY #00{index + 1}
+                                                </div>
+                                                <h3 className="font-display text-3xl font-black text-foreground leading-[1.1] tracking-tighter mb-4">
+                                                    {item.position.toUpperCase()}
+                                                </h3>
+                                                <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-3 mono text-[11px] font-black uppercase tracking-[0.1em] text-foreground">
+                                                    <span className="px-2 py-1 bg-primary/10 text-primary">{item.company}</span>
+                                                    <span className="flex items-center gap-2 text-foreground/40"><CalendarRange size={12} /> {item.duration}</span>
+                                                    <span className="flex items-center gap-2 text-foreground/40"><MapPin size={12} /> {item.location}</span>
+                                                </div>
+                                            </header>
 
-                                <div className="pt-6 sm:pt-8">
-                                    <p className="text-base leading-relaxed text-muted-foreground sm:text-lg lg:text-xl">
-                                        {item.description}
-                                    </p>
+                                            <div className="space-y-6">
+                                                {/* High Contrast Body Text */}
+                                                <p className="font-sans text-[1.05rem] leading-[1.65] text-foreground font-medium italic border-l-4 border-primary/5 pl-6">
+                                                    "{item.description}"
+                                                </p>
 
-                                    <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                                        {item.achievements.map((point) => (
-                                            <div
-                                                key={point}
-                                                className="group flex items-start gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-primary/20 hover:bg-white/[0.04] transition-all duration-300"
-                                            >
-                                                <span className="mt-1 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary text-[10px] font-bold group-hover:scale-110 transition-transform">
-                                                    ✓
-                                                </span>
-                                                <span className="text-sm lg:text-base text-muted-foreground leading-relaxed">
-                                                    {point}
-                                                </span>
+                                                <div className="space-y-4 pt-6">
+                                                    {item.achievements.map((point, i) => (
+                                                        <div key={i} className="flex items-start gap-4">
+                                                            <Circle size={8} className="mt-2 text-primary fill-primary shrink-0" />
+                                                            <span className="font-sans text-[0.95rem] text-foreground/90 leading-relaxed font-bold">
+                                                                {point}
+                                                            </span>
+                                                        </div>
+                                                    ))}
+                                                </div>
                                             </div>
-                                        ))}
+
+                                            {/* Corner Stamp */}
+                                            <div className="absolute top-4 right-4 opacity-[0.03] select-none pointer-events-none">
+                                                <Briefcase size={80} className="rotate-[-15deg]" />
+                                            </div>
+                                        </div>
                                     </div>
+
+                                    {/* Offset for visual rhythm on desktop */}
+                                    <div className="hidden md:block w-[46%]" />
                                 </div>
-                            </article>
-                        </Reveal>
-                    ))}
+                            </Reveal>
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
