@@ -1,8 +1,9 @@
 {
     "personalInfo": {
         "name": "Pravin Amalan",
-        "title": "Frontend Engineer | React and Laravel",
-        "location": "Chennai, India",
+        "title": "Frontend Developer | React.js · Laravel · PHP · MySQL",
+        "location": "Tirunelveli, India",
+        "phone": "+91 9677371766",
         "email": "pravinamalan21@gmail.com",
         "linkedin": "linkedin.com/in/pravinamalan",
         "github": "github.com/pravinamalan",
@@ -11,7 +12,7 @@
     "quickFacts": [
         {
             "label": "Location",
-            "value": "Chennai, India"
+            "value": "Tirunelveli, India"
         },
         {
             "label": "Experience",
@@ -27,7 +28,7 @@
         },
         {
             "label": "Work Preference",
-            "value": "Full-time role with selective freelance projects"
+            "value": "Open to full-time opportunities · Tirunelveli and Remote"
         },
         {
             "label": "Core Strength",
@@ -49,6 +50,9 @@
             "Laravel",
             "PHP",
             "MySQL",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
             "REST APIs"
         ],
         "Tools and Workflow": [
@@ -57,7 +61,8 @@
             "GitHub Copilot",
             "ClickUp",
             "Agile / Scrum",
-            "VS Code"
+            "VS Code",
+            "Postman"
         ],
         "Professional Skills": [
             "Problem Solving",
@@ -68,40 +73,88 @@
             "Adaptability"
         ]
     },
-    "services": [
+    "stats": [
+        {
+            "value": "3+",
+            "label": "Years Experience"
+        },
+        {
+            "value": "4",
+            "label": "Major Products Delivered"
+        },
+        {
+            "value": "50%",
+            "label": "Performance Improvement"
+        },
+        {
+            "value": "4",
+            "label": "Business Domains Served"
+        }
+    ],
+    "expertise": [
         {
             "title": "Frontend Development",
-            "description": "Designing and building responsive interfaces with React, semantic HTML, and scalable CSS systems for production applications."
+            "description": "Designing and building responsive interfaces with React.js, Vue.js, semantic HTML, and scalable CSS systems for production applications."
         },
         {
             "title": "Backend Development",
             "description": "Developing secure Laravel APIs and data-driven features with MySQL-backed architecture."
         },
         {
+            "title": "MERN Stack Development",
+            "description": "Building full-stack applications using MongoDB, Express.js, React, and Node.js with real-time capabilities via Socket.IO."
+        },
+        {
             "title": "Legacy Code Migration",
             "description": "Modernizing legacy PHP products into maintainable Laravel codebases with improved performance and delivery speed."
         },
         {
-            "title": "Dashboard & CRM Development",
+            "title": "Dashboard and CRM Development",
             "description": "Building business dashboards and CRM workflows with clear UX, role-based flows, and clean data presentation."
-        },
-        {
-            "title": "Responsive Web Design",
-            "description": "Creating consistent cross-device experiences with mobile-first layouts and careful UI behavior tuning."
         },
         {
             "title": "Performance Optimization",
             "description": "Improving load time, rendering performance, and runtime efficiency across frontend and backend layers."
         }
     ],
+    "experience": [
+        {
+            "company": "Mercu",
+            "position": "Frontend Developer",
+            "location": "Chennai, India",
+            "duration": "Jan 2023 – March 2026",
+            "type": "Full-time",
+            "description": "Work across product teams to build and maintain web applications in healthcare, education, CRM, and apartment management domains. Responsibilities include feature implementation, API integration, UI optimization, and cross-team delivery collaboration.",
+            "achievements": [
+                "Built reusable UI components that improved development velocity across multiple projects.",
+                "Delivered frontend and backend features for CRM and management platforms using React.js and Laravel.",
+                "Stepped up as sole frontend developer on LDG education platform for 7+ months covering a team vacancy — collaborating directly with backend developers on REST API integration and completing pending tickets.",
+                "Owned final-phase development, testing, and release coordination for DJ CRM from architecture to deployment.",
+                "Reduced Storage Master page load times by 50% through Laravel migration and query optimization."
+            ]
+        },
+        {
+            "company": "Mercu",
+            "position": "Web Development Trainee",
+            "location": "Chennai, India",
+            "duration": "Jul 2022 – Jan 2023",
+            "type": "Full-time",
+            "description": "Completed a structured 6-month full-stack training program, progressing through each technology with task-based assessments before advancing to the next module.",
+            "achievements": [
+                "Trained sequentially across HTML5 and CSS3 → Sass → Bootstrap → JavaScript → Laravel → MySQL.",
+                "Delivered individual project tasks at the end of each module demonstrating hands-on competency.",
+                "Promoted to Frontend Developer within 6 months based on consistent performance and task completion quality."
+            ]
+        }
+    ],
     "projects": [
         {
             "title": "APARTEASE",
-            "subtitle": "Multi-Role Apartment & Community Management Platform",
-            "role": "Frontend Developer",
-            "description": "Built a full-stack apartment management platform with dedicated portals for residents, admins, staff, vendors, and super admins; implemented billing and Razorpay payments, complaint and service workflows, gate-pass security logs, attendance management, multilingual UI, and real-time community chat.",
+            "subtitle": "Multi-Role Apartment and Community Management Platform",
+            "role": "Full Stack Developer (MERN)",
+            "description": "Built a full-stack apartment management platform using the MERN stack with dedicated portals for residents, admins, staff, vendors, and super admins. Implemented billing and Razorpay payments, complaint and service workflows, gate-pass security logs, attendance management, multilingual UI, and real-time community chat via Socket.IO.",
             "techStack": [
-                "React",
+                "React.js",
                 "Vite",
                 "Tailwind CSS",
                 "Node.js",
@@ -117,7 +170,7 @@
             "title": "INFLOWCARE",
             "subtitle": "Homecare Agency Management Platform",
             "role": "Frontend Developer",
-            "description": "Delivered core UI modules for patient intake, caregiver onboarding, and scheduling operations. Built dynamic forms, reusable components, and admin-facing dashboards for day-to-day business workflows.",
+            "description": "Delivered core UI modules for patient intake, caregiver onboarding, and scheduling operations. Built dynamic forms, reusable components, and admin-facing dashboards for day-to-day business workflows. Integrated frontend components with Laravel APIs and MySQL for real-time data management.",
             "techStack": [
                 "React.js",
                 "JavaScript",
@@ -131,26 +184,25 @@
             ]
         },
         {
-            "title": "STORAGE MASTER",
-            "subtitle": "Storage and Vehicle Rental Management System",
-            "role": "Full Stack Developer (Migration Lead)",
-            "description": "Led migration from a legacy PHP system to Laravel, rebuilt critical UI and backend modules, and delivered pricing, reservation, and admin control features used in real operations.",
+            "title": "LDG",
+            "subtitle": "Language Dynamics Groups — Education Assessment Platform",
+            "role": "Frontend Developer",
+            "description": "Took complete frontend ownership for 7+ months while covering a team vacancy. Developed and maintained responsive UI modules for student progress tracking, literacy assessment management, and result dashboards. Collaborated directly with backend developers on REST API integration and completed pending development tickets to maintain project delivery timelines.",
             "techStack": [
-                "Laravel",
-                "PHP",
-                "MySQL",
+                "React.js",
                 "JavaScript",
-                "jQuery",
                 "HTML5",
                 "CSS3",
-                "Bootstrap"
+                "Bootstrap",
+                "Laravel",
+                "MySQL"
             ]
         },
         {
             "title": "DJ CRM",
             "subtitle": "Event Planning and Music Operations CRM",
             "role": "Full Stack Developer (End-to-End Ownership)",
-            "description": "Built and maintained features for event planning workflows, song database management, and authentication-driven operations. Progressed from backend implementation to full ownership of product delivery and deployment.",
+            "description": "Built and maintained features for event planning workflows, song database management, guest song requests, event calendars, and authentication-driven operations. Took complete ownership in final stages — managing frontend, backend APIs, database design, testing, and deployment.",
             "techStack": [
                 "Laravel",
                 "PHP",
@@ -161,40 +213,6 @@
                 "CSS3",
                 "Bootstrap"
             ]
-        }
-    ],
-    "experience": [
-        {
-            "company": "Mercu",
-            "position": "Frontend Developer",
-            "location": "Chennai, India",
-            "duration": "July 2022 - Present",
-            "type": "Full-time",
-            "description": "I work across product teams to build and maintain web applications in healthcare, CRM, and rental-management domains. My responsibilities include feature implementation, API integration, UI optimization, and cross-team delivery collaboration.",
-            "achievements": [
-                "Built reusable UI components that improved development velocity across multiple projects.",
-                "Delivered frontend and backend features for CRM and management platforms using React and Laravel.",
-                "Led a legacy migration project that improved maintainability and performance.",
-                "Owned final-phase development, testing, and release coordination for DJ CRM."
-            ]
-        }
-    ],
-    "stats": [
-        {
-            "value": "3+",
-            "label": "Years Experience"
-        },
-        {
-            "value": "3",
-            "label": "Major Products Delivered"
-        },
-        {
-            "value": "50%",
-            "label": "Performance Improvement"
-        },
-        {
-            "value": "3",
-            "label": "Business Domains Served"
         }
     ]
 }

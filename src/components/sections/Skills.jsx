@@ -30,7 +30,7 @@ export default function Skills() {
     const allSkills = Object.values(skills).flat();
 
     return (
-        <section id="skills" className="py-24 lg:py-32 relative overflow-hidden bg-background" data-story-section>
+        <section id="skills" className="py-24 lg:py-24 relative overflow-hidden bg-background" data-story-section>
             <div className="section-wrap">
                 {/* Section Header */}
                 <SectionHeading

@@ -43,10 +43,10 @@ function SectionHeading({
             transition={{ duration: 0.8, ease: [0.34, 1.2, 0.64, 1] }}
             className={cn(align === "center" && "text-center flex flex-col items-center", className)}
         >
-            <div className="flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.3em] text-foreground mb-6">
-                <div className="h-[1.5px] w-12 bg-foreground/10" />
+            <div className="flex items-center gap-4 text-base font-black uppercase tracking-[0.3em] text-foreground mb-6">
+                <div className="h-[2px] w-12 bg-foreground/40" />
                 {eyebrow}
-                <div className="h-[1.5px] w-12 bg-foreground/10" />
+                <div className="h-[2px] w-12 bg-foreground/40" />
             </div>
 
             <h2 className="font-display text-[clamp(2.1rem,3vw,3.5rem)] font-black leading-[0.95] tracking-wider text-foreground">

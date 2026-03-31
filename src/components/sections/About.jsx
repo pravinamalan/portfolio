@@ -19,13 +19,13 @@ export default function About() {
     return (
         <section
             id="about"
-            className="relative py-24 lg:py-32 overflow-hidden bg-background"
+            className="relative py-24 lg:py-24 overflow-hidden bg-background"
             data-story-section
         >
             <div className="section-wrap relative z-10">
                 <SectionHeading
                     eyebrow="Introduction"
-                    title="Draft *Profile*"
+                    title="About *Me*"
                     description="Professional summary and technical foundations."
                     align="center"
                     className="mb-20"
@@ -33,7 +33,6 @@ export default function About() {
 
                 <div className="grid gap-16 lg:grid-cols-[450px_1fr] items-start max-w-7xl mx-auto">
 
-                    {/* Left: Tactical Portrait Area */}
                     <div className="relative group">
                         <Tape className="-top-4 -left-4 z-20" rotate={-15} color="rgba(78,59,49,0.15)" />
                         <Tape className="-bottom-4 -right-4 z-20" rotate={165} color="rgba(217,67,67,0.12)" />
@@ -54,7 +53,6 @@ export default function About() {
                             </div>
                         </div>
 
-                        {/* Experience Sticker */}
                         <motion.div
                             initial={{ rotate: 10, scale: 0.9 }}
                             whileInView={{ rotate: -8, scale: 1.1 }}
@@ -73,21 +71,21 @@ export default function About() {
                         <div className="space-y-8 mb-12">
                             <Typewriter
                                 text={personalInfo.bio || `I build responsive, production-ready web applications with strong UI quality, clean architecture, and reliable performance. My focus is creating products that are easy to use, easy to maintain, and aligned with business goals.`}
-                                className="text-lg font-sans text-foreground leading-relaxed font-medium tracking-[0.06em]"
+                                className="text-lg font-sans text-foreground leading-relaxed font-medium tracking-wider"
                                 speed={0.015}
                             />
 
                             <Typewriter
-                                text={`I specialize in turning complex problems into elegant, pixel-perfect interfaces that users enjoy interacting with — combining engineering precision with a strong sense of design and motion.`}
-                                className="text-lg font-sans text-foreground leading-relaxed font-medium tracking-[0.06em]"
+                                text={`With 3+ years of delivering production projects at Mercu — across healthcare, education, CRM, and apartment management — I bring full-stack experience and end-to-end ownership to every product I work on.`}
+                                className="text-lg font-sans text-foreground leading-relaxed font-medium tracking-wider"
                                 speed={0.015}
                                 delay={1.5}
                             />
                         </div>
 
                         <div className="paper-card p-10 relative mb-12 overflow-hidden bg-[#fafafa] border-l-8 border-primary">
-                            <div className="absolute top-0 right-0 p-6 mono text-[10px] text-foreground/40 font-black">CORE_ARCHITECTURE</div>
-                            <h4 className="mono text-sm font-black text-foreground uppercase tracking-[0.3em] mb-8 border-b border-dashed border-border pb-4">Technical Hardcore</h4>
+                            <div className="absolute top-0 right-0 p-6 mono text-lg text-foreground/60 font-black">STACK</div>
+                            <h4 className="mono text-sm font-black text-foreground uppercase tracking-[0.3em] mb-8 border-b border-dashed border-border pb-4">TECHNICAL SKILLS</h4>
 
                             <div className="flex flex-wrap gap-4">
                                 {allSkills.map((skill) => {
@@ -117,10 +115,14 @@ export default function About() {
                             >
                                 Contact Personnel
                             </a>
-                            <button className="flex items-center gap-3 mono text-sm font-black text-foreground hover:text-primary transition-all group">
+                            <a
+                                href="/OS_RESUME_V2.pdf"
+                                download
+                                className="flex items-center gap-3 mono text-sm font-black text-foreground hover:text-primary transition-all group"
+                            >
                                 <Download size={20} className="group-hover:translate-y-1 transition-transform" />
-                                <span className="border-b-2 border-primary/20 group-hover:border-primary transition-colors">OS_RESUME_V2.PDF</span>
-                            </button>
+                                <span className="border-b-2 border-primary/20 group-hover:border-primary transition-colors">RESUME.PDF</span>
+                            </a>
                         </div>
                     </div>
 

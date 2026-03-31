@@ -33,7 +33,7 @@ const STEPS = [
 
 export default function ScrollSequence() {
     return (
-        <section id="process" className="py-24 lg:py-32 relative overflow-hidden bg-background" data-story-section>
+        <section id="process" className="py-24 lg:py-24 relative overflow-hidden bg-background" data-story-section>
             <div className="section-wrap">
                 <SectionHeading
                     eyebrow="Workflow"
@@ -58,11 +58,11 @@ export default function ScrollSequence() {
                             <div className="w-full md:w-1/2">
                                 <div className="paper-card p-10 relative bg-white group hover:rotate-1 transition-transform">
                                     <Tape className="-top-2 left-10" rotate={-5} color="rgba(78,59,49,0.1)" />
-                                    
+
                                     <div className="mono text-[10px] font-bold text-primary/60 mb-4 tracking-widest uppercase">
                                         PHASE_{step.phase} • {step.label}
                                     </div>
-                                    
+
                                     <h3 className="font-display text-3xl font-extrabold text-foreground mb-6">
                                         <div dangerouslySetInnerHTML={{ __html: step.title.replace(/\*(.*?)\*/g, '<span class="text-primary italic">$1</span>') }} />
                                     </h3>

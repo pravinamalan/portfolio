@@ -70,7 +70,7 @@ export default function Navbar() {
                         href="#contact"
                         className="inline-flex items-center justify-center border-2 border-foreground px-10 py-3 font-display text-sm font-semibold uppercase tracking-wider text-foreground transition-all duration-300 hover:bg-foreground hover:text-background shadow-[4px_4px_0px_rgba(0,0,0,0.1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
                     >
-                        TRANS_MESSAGE
+                        Get In Touch
                     </a>
                 </div>
 
@@ -133,7 +133,7 @@ export default function Navbar() {
                             onClick={() => setIsOpen(false)}
                             className="flex items-center justify-center gap-4 bg-primary px-8 py-5 font-display text-2xl font-black text-white uppercase tracking-tighter shadow-[8px_8px_0px_rgba(217,67,67,0.15)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
                         >
-                            INIT_CONTACT <Send size={24} />
+                            Get In Touch <Send size={24} />
                         </a>
                     </div>
                 </div>

@@ -44,7 +44,6 @@ export default function Projects() {
                 />
 
                 <div className="relative mx-auto max-w-7xl">
-                    {/* Central Stepper Thread / Timeline Line */}
                     <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-1 lg:w-2 bg-foreground/5 -translate-x-1/2 z-0">
                         <div className="absolute inset-0 bg-dashed-gradient animate-[pulse_4s_infinite]" />
                     </div>
@@ -63,7 +62,6 @@ export default function Projects() {
                                         isOdd ? "lg:flex-row-reverse" : "lg:flex-row"
                                     )}
                                 >
-                                    {/* Timeline Marker / Step Node */}
                                     <div className="absolute left-8 lg:left-1/2 -translate-x-1/2 z-20 flex items-center justify-center">
                                         <motion.div 
                                             whileInView={{ scale: [0, 1.2, 1], rotate: [0, 90, 45] }}
@@ -73,7 +71,6 @@ export default function Projects() {
                                         </motion.div>
                                     </div>
 
-                                    {/* The Project Card (Blueprint Banner) */}
                                     <motion.div
                                         initial={{ opacity: 0, x: isOdd ? 100 : -100 }}
                                         whileInView={{ opacity: 1, x: 0 }}
@@ -84,7 +81,6 @@ export default function Projects() {
                                             "relative grid grid-cols-1 overflow-hidden paper-card shadow-2xl bg-white group"
                                         )}
                                     >
-                                        {/* Visual Header (Color Wash) */}
                                         <div className={cn(
                                             "relative h-[220px] overflow-hidden flex items-center justify-center",
                                             config.bg
@@ -102,13 +98,11 @@ export default function Projects() {
                                                 <Icon size={64} className={cn("text-white drop-shadow-2xl", config.accent)} strokeWidth={1.5} />
                                             </motion.div>
 
-                                            {/* Labels Stamp */}
                                             <div className="absolute top-4 right-4 mono text-[8px] font-black tracking-widest text-foreground/20 uppercase bg-white/40 px-2 py-1">
                                                 BUILD_STATUS: V1.0
                                             </div>
                                         </div>
 
-                                        {/* Project Info Body */}
                                         <div className="p-8 lg:p-10 flex flex-col">
                                             <div className="flex items-center gap-3 mono text-[10px] font-black tracking-[0.3em] text-foreground/30 mb-6 border-b border-dashed border-border pb-3">
                                                 <Hash size={12} /> PROTOCOL_{index + 1}
@@ -122,12 +116,11 @@ export default function Projects() {
                                                 "{project.description}"
                                             </p>
 
-                                            {/* Tech Stack Chips */}
                                             <div className="flex flex-wrap gap-2 mb-8">
-                                                {project.techStack.slice(0, 3).map((tech) => (
+                                                {project.techStack.map((tech) => (
                                                     <span
                                                         key={tech}
-                                                        className="mono text-[9px] font-black uppercase tracking-widest text-foreground/50 bg-foreground/5 px-2 py-1 border border-foreground/5"
+                                                        className="mono text-sm font-black uppercase tracking-widest text-foreground/60 bg-foreground/5 px-2 py-1 border border-foreground/30"
                                                     >
                                                         {tech}
                                                     </span>
@@ -136,12 +129,16 @@ export default function Projects() {
 
                                             <div className="flex items-center justify-between pt-8 border-t border-dashed border-border/50">
                                                 <div className="flex gap-4">
-                                                    <a href={project.github} className="text-foreground/30 hover:text-primary transition-all">
-                                                        <Github size={20} />
-                                                    </a>
-                                                    <a href={project.live} className="text-foreground/30 hover:text-primary transition-all">
-                                                        <ExternalLink size={20} />
-                                                    </a>
+                                                    {project.github && (
+                                                        <a href={project.github} target="_blank" rel="noreferrer" className="text-foreground/30 hover:text-primary transition-all">
+                                                            <Github size={20} />
+                                                        </a>
+                                                    )}
+                                                    {project.live && (
+                                                        <a href={project.live} target="_blank" rel="noreferrer" className="text-foreground/30 hover:text-primary transition-all">
+                                                            <ExternalLink size={20} />
+                                                        </a>
+                                                    )}
                                                 </div>
                                                 
                                                 <motion.button
@@ -153,8 +150,6 @@ export default function Projects() {
                                             </div>
                                         </div>
                                     </motion.div>
-
-                                    {/* Spacing Placeholder for layout consistency on desktop */}
                                     <div className="hidden lg:block w-[45%]" />
                                 </div>
                             );
