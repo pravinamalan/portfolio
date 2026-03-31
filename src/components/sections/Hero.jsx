@@ -48,7 +48,7 @@ export default function Hero() {
                            <a href="#contact"># HIRE-ME NOW!</a>
                         </Sticker>
                     </motion.div>
-                    <div className="absolute hidden lg:block right-10 lg:right-[10%] xl:right-[10%] top-1/3 z-20 select-none pointer-events-none transform rotate-6 scale-90 lg:scale-105 xl:scale-110">
+                    <div className="absolute hidden lg:block right-10 lg:right-[8%] xl:right-[12%] top-1/2 -translate-y-1/2 z-0 select-none pointer-events-none transform rotate-6 scale-90 lg:scale-100 xl:scale-110 opacity-40 xl:opacity-100">
                         <motion.div 
                             initial={{ y: 20, opacity: 0, rotate: 12 }}
                             animate={{ y: 0, opacity: 1, rotate: 6 }}
@@ -108,12 +108,12 @@ export default function Hero() {
                 </div>
             </div>
 
-            <div className="relative z-10 w-full max-w-5xl px-6 flex flex-col items-center text-center">
+            <div className="relative z-10 w-full max-w-5xl px-6 flex flex-col items-center text-center mt-12 lg:mt-0">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="relative mb-8"
+                    className="relative mb-6"
                 >
                     <Tape className="-top-4 -left-4" rotate={-15} />
                     <div className="mono text-sm font-bold uppercase tracking-[0.2em] text-primary bg-primary/5 border border-primary/20 px-4 py-1.5 rounded-sm">
@@ -121,10 +121,10 @@ export default function Hero() {
                     </div>
                 </motion.div>
 
-                <div className="overflow-hidden">
-                    <h1 className="font-display text-[clamp(2.5rem,5vw,5rem)] font-extrabold leading-[1.2] tracking-[0.04em] text-foreground">
+                <div className="overflow-hidden mb-6">
+                    <h1 className="hero-headline">
                         BUILDING <br />
-                        <span className="text-primary italic">PRODUCTION-READY </span> WEB APPLICATIONS..
+                        <span>PRODUCTION-READY </span> WEB APPLICATIONS..
                     </h1>
                 </div>
                 <motion.p

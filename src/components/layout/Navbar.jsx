@@ -87,7 +87,7 @@ export default function Navbar() {
 
             <div
                 className={cn(
-                    "fixed inset-0 z-[200] bg-[#fdfbf7] lg:hidden flex flex-col transition-all duration-700 ease-[cubic-bezier(0.85,0,0.15,1)]",
+                    "fixed inset-0 z-[200] bg-[#fdfbf7] lg:hidden flex flex-col transition-all duration-700 ease-expo",
                     isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0 pointer-events-none"
                 )}
             >
