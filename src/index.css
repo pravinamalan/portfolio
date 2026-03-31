@@ -5,10 +5,10 @@
 @layer base {
     :root {
         /* ── SYSTEM FONTS (Professional Retro) ── */
-        --font-sans: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        --font-display: ui-sans-serif, system-ui, sans-serif;
+        --font-sans: "DM Sans", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
         --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        --font-hand: "Caveat", cursive;
+        --font-hand: "Libre Baskerville", "Caveat", cursive;
 
         /* ── WARM VINTAGE PALETTE ── */
         --background: 40 20% 98%;
@@ -135,11 +135,12 @@
 
     .hero-headline {
         font-family: var(--font-display);
-        font-size: clamp(2.5rem, 6vw, 5rem);
-        line-height: 1.1;
-        letter-spacing: -0.02em;
+        font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
         font-weight: 800;
         color: hsl(var(--foreground));
+        transform: translateZ(0); /* Defensive for flicker */
     }
 
     .hero-headline span {
