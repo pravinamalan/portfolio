@@ -48,7 +48,7 @@ export default function Hero() {
                            <a href="#contact"># HIRE-ME NOW!</a>
                         </Sticker>
                     </motion.div>
-                    <div className="absolute -right-20 lg:right-28 top-1/3 hidden xl:block z-20 select-none pointer-events-none transform rotate-6 scale-90 lg:scale-110">
+                    <div className="absolute hidden lg:block right-10 lg:right-[10%] xl:right-[10%] top-1/3 z-20 select-none pointer-events-none transform rotate-6 scale-90 lg:scale-105 xl:scale-110">
                         <motion.div 
                             initial={{ y: 20, opacity: 0, rotate: 12 }}
                             animate={{ y: 0, opacity: 1, rotate: 6 }}
