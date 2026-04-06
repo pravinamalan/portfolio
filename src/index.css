@@ -6,7 +6,7 @@
     :root {
         /* ── SYSTEM FONTS (Professional Retro) ── */
         --font-sans: "DM Sans", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-        --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+        --font-display:  ui-sans-serif, system-ui, sans-serif;
         --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
         --font-hand: "Libre Baskerville", "Caveat", cursive;
 

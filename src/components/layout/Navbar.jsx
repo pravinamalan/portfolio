@@ -45,11 +45,11 @@ export default function Navbar() {
                 <a 
                     href="#"
                     className={cn(
-                        "relative z-10 transition-all duration-500 tracking-tighter uppercase font-display font-black text-2xl",
+                        "relative z-10 transition-all duration-500 tracking-tighter uppercase font-display font-[900] text-2xl",
                         "hover:scale-105 active:scale-95"
                     )}
                 >
-                    {personalInfo.name.split(' ')[0]}<span className="text-primary italic font-black"> AMALAN</span>
+                    {personalInfo.name.split(' ')[0]}<span className="text-primary italic font-[900]"> AMALAN</span>
                 </a>
                 
                 <nav className="hidden items-center gap-10 lg:flex">

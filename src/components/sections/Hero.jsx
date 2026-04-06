@@ -29,9 +29,9 @@ export default function Hero() {
             <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
                 <div className="relative w-full h-full pointer-events-auto">
                     <DraggableNote
-                        initialX={350}
-                        initialY={120}
-                        initialRotate={-8}
+                        initialX={200}
+                        initialY={100}
+                        initialRotate={-15}
                         color="#fef08a"
                         className="hidden xl:flex z-50"
                     >
@@ -41,15 +41,15 @@ export default function Hero() {
 
                     <motion.div
                         drag
-                        initial={{ x: 1400, y: 250, rotate: 10 }}
+                        initial={{ x: 1200, y: 250, rotate: 10 }}
                         className="absolute cursor-grab active:cursor-grabbing hidden xl:block"
                     >
                         <Sticker importance="high" className="bg-[#d94343] text-white">
-                           <a href="#contact"># HIRE-ME NOW!</a>
+                            <a href="#contact"># HIRE-ME NOW!</a>
                         </Sticker>
                     </motion.div>
-                    <div className="absolute hidden lg:block right-10 lg:right-[8%] xl:right-[12%] top-1/2 -translate-y-1/2 z-0 select-none pointer-events-none transform rotate-6 scale-90 lg:scale-100 xl:scale-110 opacity-40 xl:opacity-100">
-                        <motion.div 
+                    <div className="absolute hidden lg:block right-10 lg:right-[8%] xl:right-[5%] top-1/2 -translate-y-1/2 z-0 select-none pointer-events-none transform rotate-6 scale-90 lg:scale-100 xl:scale-110 opacity-40 xl:opacity-100">
+                        <motion.div
                             initial={{ y: 20, opacity: 0, rotate: 12 }}
                             animate={{ y: 0, opacity: 1, rotate: 6 }}
                             transition={{ duration: 1.2, delay: 0.8 }}
@@ -71,17 +71,17 @@ export default function Hero() {
                             </div>
 
                             <svg viewBox="0 0 100 100" className="w-full h-full text-blue-600/40 stroke-current stroke-[1.5] fill-none overflow-visible">
-                                <motion.rect 
+                                <motion.rect
                                     initial={{ pathLength: 0 }}
                                     animate={{ pathLength: 1 }}
                                     transition={{ duration: 2, delay: 1 }}
-                                    x="0" y="0" width="80" height="25" rx="2" 
+                                    x="0" y="0" width="80" height="25" rx="2"
                                 />
-                                <motion.circle 
+                                <motion.circle
                                     initial={{ pathLength: 0 }}
                                     animate={{ pathLength: 1 }}
                                     transition={{ duration: 1, delay: 1.5 }}
-                                    cx="15" cy="12.5" r="6" 
+                                    cx="15" cy="12.5" r="6"
                                 />
                                 <motion.line x1="30" y1="9" x2="70" y2="9" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 1.8 }} />
                                 <motion.line x1="30" y1="16" x2="60" y2="16" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 2.0 }} />
@@ -89,10 +89,10 @@ export default function Hero() {
                                 <motion.rect x="0" y="35" width="35" height="35" rx="2" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 2.2 }} />
                                 <motion.rect x="45" y="35" width="35" height="35" rx="2" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ delay: 2.4 }} />
 
-                                <motion.path 
-                                    d="M -10 90 Q 40 120 90 90" 
-                                    stroke="#D94343" 
-                                    strokeWidth="3" 
+                                <motion.path
+                                    d="M -10 90 Q 40 120 90 90"
+                                    stroke="#D94343"
+                                    strokeWidth="3"
                                     strokeDasharray="4 4"
                                     initial={{ pathLength: 0, opacity: 0 }}
                                     animate={{ pathLength: 1, opacity: 0.6 }}
@@ -148,9 +148,9 @@ export default function Hero() {
                         <a href="#contact">Hire Me</a>
                     </button>
 
-                    <a 
-                        href="/OS_RESUME_V2.pdf" 
-                        download 
+                    <a
+                        href="/OS_RESUME_V2.pdf"
+                        download
                         className="flex items-center gap-2 border border-foreground/20 px-8 py-4 rounded-sm font-bold uppercase tracking-wider transition-all hover:bg-foreground/5"
                     >
                         <FileText size={18} /> CV
